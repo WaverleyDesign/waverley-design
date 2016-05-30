@@ -1,11 +1,11 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/shop-app.html",
+  "shell": "src/waverley-design.html",
   "fragments": [
-    "src/shop-list.html",
-    "src/shop-detail.html",
-    "src/shop-cart.html",
-    "src/shop-checkout.html",
-    "src/lazy-resources.html"
+    "src/home-page.html",
+    "src/about-page.html",
+    "src/portfolio-page.html",
+    "src/contact-page.html",
+    "src/products-page.html"
   ]
 }

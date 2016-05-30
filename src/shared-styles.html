@@ -1,0 +1,224 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/paper-styles/shadow.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+<dom-module id="shared-styles">
+  <template>
+    <style>
+
+          .border-bottom {
+            border-bottom: 1px solid var(--app-secondary-color);
+          }
+
+          a, paper-tab, div {
+            outline: none;
+          }
+
+          :host {
+            display: block;
+            --app-primary-color: var(--paper-green-600);
+            --app-secondary-color: #202020;
+          }
+
+          app-header {
+            background-color: #fff;
+            color: var(--app-secondary-color);
+          }
+          app-header paper-icon-button {
+            --paper-icon-button-ink-color: var(--app-secondary-color);
+          }
+
+          .tabs a {
+            display: block;
+            text-transform: uppercase;;
+            text-decoration: none;
+            color: var(--app-secondary-color);
+          }
+
+          .logo-container {
+            @apply(--layout-vertical);
+            @apply(--layout-center);
+            width: 100%
+          }
+
+          .waverley {
+            color: var(--app-primary-color);
+          }
+
+          h1, h2, h3, h4, h5, h6, .heading {
+            font-family: 'Roboto Slab', sans-serif;
+            font-weight: 300;
+            margin-top: 0px;
+          }
+
+          .heading {
+            @apply(--paper-font-display1);
+          }
+
+          app-drawer {
+            z-index: 1;
+          }
+
+          .desktop-logo-type {
+            margin: 8px;
+          }
+
+          .drawer-heading {
+            margin-left: 16px;
+          }
+
+          @media (min-width: 0px) {
+            app-toolbar {
+              height: auto;
+            }
+
+            .logo {
+              height: 150px;
+              width: 150px;
+            }
+
+            .drawer-toggle {
+              position: fixed;
+              top: 16px;
+            }
+
+            paper-material {
+              padding: 16px;
+              margin: 32px auto;
+              width: 90%;
+            }
+          }
+
+          @media (min-width: 600px) {
+            paper-material {
+              width: 75%;
+              margin: 32px auto;
+              padding: 32px;
+            }
+          }
+
+          @media (min-width: 960px) {
+            paper-material {
+              width: 60%;
+              margin: 48px auto;
+              padding: 48px;
+            }
+          }
+
+          @media (min-width: 480px) {
+
+          }
+          @media (min-width: 600px) {
+
+          }
+          @media (min-width: 840px) {
+
+          }
+          @media (min-width: 960px) {
+
+          }
+          @media (min-width: 1280px) {
+
+          }
+          @media (min-width: 1440px) {
+
+          }
+          @media (min-width: 1600px) {
+
+          }
+
+
+          paper-material  {
+            background-color: #fff;
+          }
+
+          a {
+            color: var(--app-primary-color);
+            text-decoration: none
+          }
+
+          .dual-panel {
+            @apply(--layout-horizontal);
+          }
+
+          .image-receptacle img {
+            width: 100%;
+          }
+
+          .image-receptacle {
+            padding: 32px;
+          }
+
+          .dual-panel > * {
+            width: 50%;
+          }
+
+          .tri-panel > * {
+            width: 33.3%;
+            margin: 20px;
+          }
+
+          .tri-panel {
+            padding: 60px 80px;
+            @apply(--layout-horizontal);
+          }
+
+          .points-heading {
+            @apply(--paper-font-title);
+            border-bottom: 1px solid var(--app-primary-color);
+          }
+
+          .heading-text-receptacle {
+            padding: 32px;
+            text-align: right;
+          }
+
+          .portfolio-heading {
+            @apply(--paper-font-display1);
+          }
+
+          .portfolio-receptacle {
+            padding: 48px;
+            overflow-x: scroll;
+          }
+
+          .portfolio-scroller {
+            width: 4000px;
+          }
+
+          .portfolio-receptacle paper-card {
+            width: 20%;
+            --paper-card-header-text: {
+              @apply(--paper-shadow-elevation-6dp);
+            };
+            margin-right: 20px;
+          }
+
+          .subtitle {
+            @apply(--paper-font-subhead);
+          }
+
+          ul {
+            @apply(--paper-font-subhead);
+          }
+
+          .block-color {
+            background-color: #263238;
+            color: white;
+          }
+
+
+    </style>
+  </template>
+</dom-module>

@@ -14,64 +14,71 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-  <title>SHOP</title>
+  <title>Waverley Design</title>
 
-  <link rel="shortcut icon" sizes="32x32" href="/images/shop-icon-32.png">
+  <link rel="shortcut icon" sizes="72x72" href="/images/icons/icon-72x72.png">
 
-  <meta name="theme-color" content="#fff">
+  <meta name="description" content="High quality, beautiful local web design for businesses, clubs, and organisations." />
+
+  <meta name="theme-color" content="#43A047">
   <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Slab:300,400,700">
 
-  <link rel="import" href="/src/shop-app.html" async>
+  <script>
+
+    // setup Polymer options
+    window.Polymer = {lazyRegister: true, dom: 'shadow'};
+
+    // load webcomponents polyfills
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+        // browser has web components
+      } else {
+        // polyfill web components
+        var e = document.createElement('script');
+        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        window.onload = function() { document.body.appendChild(e); }
+      }
+    })();
+
+    // load pre-caching service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+
+  </script>
+
+  <link rel="import" href="/src/waverley-design.html">
 
   <style>
 
     body {
       margin: 0;
       font-family: 'Roboto', 'Noto', sans-serif;
-      font-size: 13px;
       line-height: 1.5;
       min-height: 100vh;
-    }
-
-    /* styling for render while resources are loading */
-    shop-app[unresolved] {
-      display: block;
-      min-height: 101vh;
-      line-height: 68px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      color: #202020;
-      padding: 0 16px;
-      overflow: visible;
+      background-color: #eee;
     }
 
   </style>
 
 </head>
 <body>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KH89CD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KH89CD');</script>
+  <!-- End Google Tag Manager -->
 
-  <shop-app unresolved>SHOP</shop-app>
-
-  <script>
-    window.performance && performance.mark && performance.mark('index.html');
-
-    Polymer = {lazyRegister: true, dom: 'shadow'};
-
-    (function() {
-      if ('registerElement' in document
-          && 'import' in document.createElement('link')
-          && 'content' in document.createElement('template')) {
-        // platform is good!
-      } else {
-        // polyfill the platform!
-        var e = document.createElement('script');
-        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
-        document.body.appendChild(e);
-      }
-    })();
-  </script>
+  <waverley-design>Waverley Design</waverley-design>
 
 </body>
 </html>
