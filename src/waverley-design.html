@@ -19,14 +19,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="footer-dropdown.html">
 
-<link rel="import" href="my-icons.html">
+<link rel="import" href="waverley-design-icons.html">
 
 <dom-module id="waverley-design">
 
@@ -34,8 +37,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="iron-flex iron-flex-alignment"></style>
     <style include="shared-styles">  </style>
 
-    <iron-media-query query="max-width: 767px" query-matches="{{smallScreen}}"></iron-media-query>
-    <iron-media-query query="max-width: 600px" query-matches="{{logoHidden}}"></iron-media-query>
+    <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
+    </iron-media-query>
 
     <app-location route="{{route}}"></app-location>
     <app-route
@@ -47,13 +50,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header fixed>
           <app-toolbar primary class="border-bottom">
             <template is="dom-if" if="{{smallScreen}}" restamp="true">
-              <paper-icon-button class="drawer-toggle" icon="menu" on-tap="toggleDrawer"></paper-icon-button>
+              <paper-icon-button class="drawer-toggle" icon="waverleydesignicons:menu" on-tap="toggleDrawer"></paper-icon-button>
             </template>
             <div class="logo-container">
-              <template is="dom-if" if="{{logoHidden}}" restamp="true">
+              <template is="dom-if" if="{{smallScreen}}" restamp="true">
                 <img class="logo" src="../images/app-icon.svg" alt="Logo"/>
               </template>
-              <h1 class="desktop-logo-type" hidden="{{logoHidden}}"><span class="waverley">Waverley</span> Design Company</h1>
+              <h1 class="desktop-logo-type" hidden="{{smallScreen}}"><span class="waverley">Waverley</span> Design Company</h1>
             </div>
           </app-toolbar>
           <template secondary is="dom-if" if="{{!smallScreen}}">
@@ -86,17 +89,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </template>
 
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-          <home-page small-screen="{{smallScreen}}" name="home"></home-page>
+          <home-page name="home"></home-page>
           <about-page name="about"></about-page>
           <contact-page name="contact"></contact-page>
           <portfolio-page name="portfolio"></portfolio-page>
         </iron-pages>
 
-        <footer>
-          <p>
+
+        <footer class="border-bottom tri-panel">
+          <p class="subtitle">
             Designed and built by the Waverley Design Company.
           </p>
+          <footer-dropdown title="Products">
+            <h5>Content</h5>
+          </footer-dropdown>
+          <footer-dropdown title="Share">
+            <h5>Share</h5>
+          </footer-dropdown>
+
         </footer>
+
+        <div class="back-to-top">
+          Back to top
+        </div>
 
 
 
@@ -125,14 +140,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             {page: 'home', name: 'Home'},
             {page: 'about', name: 'About'},
             {page: 'contact', name: 'Contact'},
+            {page: 'portfolio', name: 'Portfolio'},
           ]
         },
+
 
       },
 
       observers: [
-        '_routePageChanged(routeData.page)'
+        '_routePageChanged(routeData.page)',
       ],
+
 
       toggleDrawer: function() {
         this.drawerOpened = true;

@@ -1,0 +1,74 @@
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="footer-dropdown">
+  <template>
+    <style include="shared-styles">
+    :host {
+      width: 100%;
+      display: block;
+    }
+    .toggle {
+      width: 100%;
+    }
+    </style>
+    <style include="iron-flex iron-flex-alignment"></style>
+
+    <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
+    </iron-media-query
+
+    <div>
+      <div class="horizontal layout justified center toggle" on-tap="toggleCollapse">
+        <span>{{title}}</span>
+        <paper-icon-button id="toggle" icon="waverleydesignicons:{{icon}}"></paper-icon-button>
+      </div>
+      <iron-collapse id="collapse" opened="{{!smallScreen}}">
+        <content></content>
+      </iron-collapse>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'footer-dropdown',
+      properties: {
+
+      },
+
+      observers: [
+        '_collapseChanged(smallScreen)'
+      ],
+
+
+
+      _collapseChanged: function(smallScreen) {
+        this.toggleIcon();
+      },
+
+      // _computeCollapseOpen: function(smallScreen) {
+      //   if (smallScreen) {
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // },
+
+      toggleCollapse: function() {
+        this.$.collapse.toggle();
+      },
+
+      toggleIcon: function() {
+        if (this.icon == 'arrow-drop-down') {
+          this.icon = 'arrow-drop-up';
+        } else {
+          this.icon = 'arrow-drop-down';
+        }
+      },
+    });
+  </script>
+</dom-module>

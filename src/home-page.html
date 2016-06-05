@@ -1,4 +1,4 @@
-<!--
+opmer <!--
 @license
 Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -20,23 +20,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template>
 
+    <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
+    </iron-media-query>
+
     <style include="shared-styles"></style>
     <style include="mixin-styles"></style>
     <style include="iron-flex iron-flex-alignment"></style>
 
     <div class="dual-panel border-bottom">
-      <div class="image-receptacle">
-        <img src="../images/website-graphic.png" alt="" />
-      </div>
+      <template is="dom-if" if="{{smallScreen}}">
+        <div class="image-receptacle">
+          <img src="../images/website-graphic-mobile.png" alt="" />
+        </div>
+      </template>
+      <template is="dom-if" if="{{!smallScreen}}">
+        <div class="image-receptacle">
+          <img src="../images/website-graphic-large.png" alt="" />
+        </div>
+      </template>
       <div class="heading-text-receptacle">
         <h1 class="heading">High Quality Local Web Design</h1>
         <p class="subtitle">
-          For local businesses, organisations, clubs, and community.
+          For local businesses, organisations, clubs, and community. Also, is this a small screen? <span>{{smallScreen}}</span>
         </p>
       </div>
     </div>
 
-    <div class="block-color tri-panel border-bottom">
+    <div class="block-color tri-panel border-bottom horizontal layout wrap">
       <div>
         <h1 class="points-heading">Heading</h1>
         <ul>
@@ -62,14 +72,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </ul>
       </div>
     </div>
-    <div class="portfolio-receptacle border-bottom">
+
+    <div class="product-promo">
+
+    </div>
+    <!-- <div class="portfolio-receptacle border-bottom">
       <h2 class="portfolio-heading">Portfolio</h2>
       <div class="horizontal layout portfolio-scroller">
         <paper-card image="../images/portfolio/judithnissen.png" heading="Judith Nissen"></paper-card>
         <paper-card image="../images/portfolio/judithnissen.png" heading="Judith Nissen"></paper-card>
         <paper-card image="../images/portfolio/judithnissen.png" heading="Judith Nissen"></paper-card>
       </div>
-    </div>
+    </div> -->
 
 
   </template>

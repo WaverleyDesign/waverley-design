@@ -63,7 +63,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           .heading {
-            @apply(--paper-font-display1);
+            @apply(--paper-font-display3);
+            line-height: normal;
           }
 
           app-drawer {
@@ -77,6 +78,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           .drawer-heading {
             margin-left: 16px;
           }
+
+          footer .subtitle {
+            line-height: normal;
+          }
+
+          /* Min-Width: 0px */
 
           @media (min-width: 0px) {
             app-toolbar {
@@ -98,35 +105,66 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               margin: 32px auto;
               width: 90%;
             }
+
+            .tri-panel {
+              padding: 32px;
+            }
+
+            .dual-panel > * {
+              width: 100%;
+            }
+
+            .tri-panel > * {
+              width: 100%;
+            }
+            footer {
+              padding: 16px;
+            }
+            footer .subtitle {
+              font-size: 16px;
+            }
           }
 
+          @media (min-width: 480px) {
+            .heading {
+              @apply(--paper-font-display1);
+            }
+            footer .subtitle {
+              font-size: 22px;
+            }
+          }
           @media (min-width: 600px) {
+            .tri-panel > * {
+              width: calc(33.3% - 40px);
+              margin: 20px;
+            }
             paper-material {
               width: 75%;
               margin: 32px auto;
               padding: 32px;
             }
-          }
+            footer {
+              padding: 32px;
+            }
 
+          }
+          @media (min-width: 840px) {
+            .tri-panel {
+              padding: 60px 80px;
+            }
+          }
           @media (min-width: 960px) {
+            .heading {
+              @apply(--paper-font-display3);
+            }
             paper-material {
               width: 60%;
               margin: 48px auto;
               padding: 48px;
             }
-          }
-
-          @media (min-width: 480px) {
-
-          }
-          @media (min-width: 600px) {
-
-          }
-          @media (min-width: 840px) {
-
-          }
-          @media (min-width: 960px) {
-
+            .dual-panel > * {
+              width: calc(50% - 64px);
+            }
           }
           @media (min-width: 1280px) {
 
@@ -148,30 +186,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             text-decoration: none
           }
 
-          .dual-panel {
+          .dual-panel, .tri-panel {
             @apply(--layout-horizontal);
+            @apply(--layout-wrap);
           }
 
           .image-receptacle img {
             width: 100%;
+            margin-bottom: -7px;
           }
 
           .image-receptacle {
+            padding: 0px;
+            border-right: 1px solid var(--app-secondary-color);
+            border-bottom: 1px solid white;
+          }
+
+          footer {
+            background-color: #fff;
+            color: var(--app-secondary-color);
             padding: 32px;
-          }
-
-          .dual-panel > * {
-            width: 50%;
-          }
-
-          .tri-panel > * {
-            width: 33.3%;
-            margin: 20px;
-          }
-
-          .tri-panel {
-            padding: 60px 80px;
-            @apply(--layout-horizontal);
           }
 
           .points-heading {
@@ -194,7 +228,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           .portfolio-scroller {
-            width: 4000px;
+            width: 2500px;
           }
 
           .portfolio-receptacle paper-card {
@@ -206,7 +240,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           .subtitle {
-            @apply(--paper-font-subhead);
+            @apply(--paper-font-display1);
+            font-family: 'Roboto Slab', 'Noto', sans-serif;
           }
 
           ul {
@@ -216,6 +251,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           .block-color {
             background-color: #263238;
             color: white;
+          }
+
+          .back-to-top {
+            background-color: #43A047;
+            color: white;
+            width: calc(100% + 8px);
+            margin: auto -8px;
+          }
+
+          iron-collapse h5 {
+            margin: 4px auto;
           }
 
 
