@@ -9,11 +9,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="mixin-styles.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
 
 
 <dom-module id="home-page">
@@ -23,25 +23,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
     </iron-media-query>
 
-    <style include="shared-styles"></style>
-    <style include="mixin-styles"></style>
+    <style include="shared-styles">
+    </style>
+
     <style include="iron-flex iron-flex-alignment"></style>
 
-    <div class="dual-panel border-bottom">
-      <template is="dom-if" if="{{smallScreen}}">
-        <div class="image-receptacle">
-          <img src="../images/website-graphic-mobile.png" alt="" />
-        </div>
-      </template>
-      <template is="dom-if" if="{{!smallScreen}}">
-        <div class="image-receptacle">
-          <img src="../images/website-graphic-large.png" alt="" />
-        </div>
-      </template>
+    <div class="horizontal layout wrap border-bottom main-graphic-panel">
+      <div class="image-receptacle main-graphic">
+
+        <template is="dom-if" if="{{smallScreen}}" restamp="true">
+          <iron-image class="main-graphic" sizing="cover" src="../images/website-graphic-mobile.png"></iron-image>
+        </template>
+
+        <template is="dom-if" if="{{!smallScreen}}" restamp="true">
+          <iron-image class="main-graphic" sizing="cover" src="../images/website-graphic-large.png"></iron-image>
+        </template>
+
+      </div>
       <div class="heading-text-receptacle">
         <h1 class="heading">High Quality Local Web Design</h1>
         <p class="subtitle">
-          For local businesses, organisations, clubs, and community. Also, is this a small screen? <span>{{smallScreen}}</span>
+          For local businesses, organisations, clubs, and community.
         </p>
       </div>
     </div>
@@ -49,7 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="block-color tri-panel border-bottom horizontal layout wrap">
       <div>
         <h1 class="points-heading">Heading</h1>
-        <ul>
+        <ul class="points">
           <li>Points</li>
           <li>Points</li>
           <li>Points</li>
@@ -57,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
       <div>
         <h1 class="points-heading">Heading</h1>
-        <ul>
+        <ul class="points">
           <li>Points</li>
           <li>Points</li>
           <li>Points</li>
@@ -65,7 +67,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
       <div>
         <h1 class="points-heading">Heading</h1>
-        <ul>
+        <ul class="points">
           <li>Points</li>
           <li>Points</li>
           <li>Points</li>
@@ -73,17 +75,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
     </div>
 
-    <div class="product-promo">
 
-    </div>
-    <!-- <div class="portfolio-receptacle border-bottom">
-      <h2 class="portfolio-heading">Portfolio</h2>
-      <div class="horizontal layout portfolio-scroller">
-        <paper-card image="../images/portfolio/judithnissen.png" heading="Judith Nissen"></paper-card>
-        <paper-card image="../images/portfolio/judithnissen.png" heading="Judith Nissen"></paper-card>
-        <paper-card image="../images/portfolio/judithnissen.png" heading="Judith Nissen"></paper-card>
-      </div>
-    </div> -->
+
 
 
   </template>

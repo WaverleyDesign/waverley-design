@@ -19,7 +19,7 @@
     </style>
     <style include="iron-flex iron-flex-alignment"></style>
 
-    <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
+    <iron-media-query query="min-width: 600px" query-matches="{{!smallScreen}}">
     </iron-media-query
 
     <div>
@@ -63,10 +63,10 @@
       },
 
       toggleIcon: function() {
-        if (this.icon == 'arrow-drop-down') {
-          this.icon = 'arrow-drop-up';
-        } else {
+        if (this.icon == 'arrow-drop-up') {
           this.icon = 'arrow-drop-down';
+        } else {
+          this.icon = 'arrow-drop-up';
         }
       },
     });
