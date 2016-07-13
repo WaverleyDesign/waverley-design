@@ -55,6 +55,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* Variables */
     --app-primary-color: var(--paper-green-600);
     --app-secondary-color: var(--paper-blue-grey-900);
+
+    --container: {
+      @apply(--layout-horizontal);
+      @apply(--layout-center-justified);
+    };
+  }
+
+  .container {
+    @apply(--layout-horizontal);
+    @apply(--layout-center-justified);
   }
 
   app-header {
@@ -302,7 +312,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   a {
-    color: var(--app-primary-color);
+    color: var(--paper-blue-grey-800);
     text-decoration: none
   }
 

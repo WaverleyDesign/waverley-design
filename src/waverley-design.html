@@ -35,7 +35,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template>
     <style include="iron-flex iron-flex-alignment"></style>
-    <style include="shared-styles">  </style>
+    <style include="shared-styles">
+
+    app-toolbar.links-bar div, app-toolbar.title-bar {
+      @apply(--layout-horizontal);
+      @apply(--layout-center-justified);
+      width: 100%;
+    }
+
+    app-toolbar.title-bar h1 {
+      margin-top: 24px;
+    }
+
+    app-toolbar.title-bar {
+      background-color: white;
+    }
+
+    a {
+      margin: 16px;
+    }
+
+    </style>
 
     <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
     </iron-media-query>
@@ -47,30 +67,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-        <app-header fixed>
-          <app-toolbar class="border-bottom">
-            <template is="dom-if" if="{{smallScreen}}" restamp="true">
-              <paper-icon-button class="drawer-toggle" icon="waverleydesignicons:menu" on-tap="toggleDrawer"></paper-icon-button>
-            </template>
-            <div class="logo-container">
-              <template is="dom-if" if="{{smallScreen}}" restamp="true">
-                <img class="logo" src="../images/app-icon.svg" alt="Logo"/>
-              </template>
-              <h1 class="desktop-logo-type" hidden="{{smallScreen}}"><span class="waverley">Waverley</span> Design Company</h1>
-            </div>
-          </app-toolbar>
-          <template is="dom-if" if="{{!smallScreen}}">
-            <paper-tabs selected="[[page]]" noink attr-for-selected="name" class="tabs border-bottom" role="navigation">
-              <template is="dom-repeat" items="{{views}}" index-as="index">
-                <paper-tab link>
-                  <div class="horizontal layout center">
-                    <a href="/{{item.page}}" class="link" tabindex="-1" name="{{item.page}}">{{item.name}}</a>
-                  </div>
-                </paper-tab>
-              </template>
-            </paper-tabs>
-          </template>
-        </app-header>
+        <app-header-layout>
+  <app-header fixed condenses effects="waterfall">
+    <app-toolbar class="links-bar">
+      <div>
+        <a href="/home">home</a>
+        <a href="/about">about</a>
+        <a href="/contact">contact</a>
+        <a href="/projects">projects</a>
+      </div>
+    </app-toolbar>
+  </app-header>
+
+
+
+
+
+  <div>
+
+    <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+      <home-page name="home"></home-page>
+      <about-page name="about"></about-page>
+      <contact-page name="contact"></contact-page>
+      <portfolio-page name="portfolio"></portfolio-page>
+      <products-page name="products"></products-page>
+    </iron-pages>
+
+  </div>
+</app-header-layout>
 
         <!-- Drawer content -->
         <template is="dom-if" if="{{smallScreen}}" restamp="true">
@@ -88,13 +112,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </app-drawer>
         </template>
 
-        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-          <home-page name="home"></home-page>
-          <about-page name="about"></about-page>
-          <contact-page name="contact"></contact-page>
-          <portfolio-page name="portfolio"></portfolio-page>
-          <products-page name="products"></products-page>
-        </iron-pages>
+
 
 
         <footer class="border-top border-bottom tri-panel horizontal layout wrap">
@@ -168,6 +186,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _routePageChanged: function(page) {
         this.page = page || 'home';
+      },
+
+      _isPageHome: function(page) {
+        if (page == 'home') {
+          return true;
+        } else {
+          return false;
+        }
       },
 
       _pageChanged: function(page) {
