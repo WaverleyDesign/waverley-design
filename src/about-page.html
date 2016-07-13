@@ -1,0 +1,126 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="text-page-template.html">
+<link rel="import" href="what-we-do.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="about-page">
+
+  <template>
+
+    <style include="shared-styles">
+
+      what-we-do p {
+        margin: 0px;
+      }
+
+      .grid {
+        @apply(--layout-vertical);
+        @apply(--layout-wrap);
+        width: 100%;
+      }
+
+      .grid > what-we-do {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+
+      }
+
+      @media (min-width: 0px) {
+        .grid > what-we-do {
+          width: calc(100%);
+          margin: 8px 0px;
+        }
+        .grid {
+          height: 100%;
+        }
+      }
+      @media (min-width: 960px) {
+        .grid > what-we-do {
+          width: calc(50% - 32px);
+          margin: 16px;
+        }
+        .grid {
+          height: 950px;
+          margin-left: -16px;
+          width: calc(100% + 32px);
+        }
+      }
+
+    </style>
+
+    <style include="iron-flex iron-flex-alignment"></style>
+
+    <text-page-template heading="About">
+        <h2>Who We Are</h2>
+        <p>
+          The Waverley Design Company was established to provide cost-effective, quality, and community minded design and web development to the local area. We aim to help you deliver the very best experience to your visitors and customers, whether you’re a small local business, community organisation, or just an individual with a great idea. This could involve a beautiful website, an informative and useful web-app, or perhaps a set of stunning business cards.
+        </p>
+        <p>
+          We believe in only providing the best service, so our websites are built to last - they’re constructed from modern frameworks that are currently setting the standard for the future of the web. That means no costly and time-consuming updates, saving you hassle and letting you get back to work.
+        </p>
+        <h2>What We Do</h2>
+        <p>
+          Click each category to see more.
+        </p>
+
+          <div class="grid">
+            <what-we-do heading="Websites" icon="web">
+              <p>
+                Beautifully designed, brand new websites for just about anything - designed, built, and set up to your needs and specifications.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Web Applications" icon="apps">
+              <p>
+                Leveraging the power of the modern web, web-apps are cross-platform, fast, and powerful, while being far more efficient and cost-effective than native apps.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Site Rejuvenation" icon="restore">
+              <p>
+                Renovation and/or replacement of existing sites, spiced up to meet modern standards for user experience, or just for a design refresh.
+              </p>
+            </what-we-do>
+            <what-we-do heading="SEO" icon="search">
+              <p>
+                Search Engine Optimisation and best practices ensure your site is the first that your potential visitors see when they search. Deliver rich content to your visitors directly from their search results.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Social Media" icon="share">
+              <p>
+                Marketing strategies for your Social Media presence, and integration with your website.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Responsive Design" icon="phonelink">
+              <p>
+                Your website will look and work great across <i>all</i> devices; phones, laptops, tablets, desktop computers, even TVs - by default, at no extra charge.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Portfolios" icon="dashboard">
+              <p>
+                We'll help you design and create a beautiful, personal portfolio that showcases your skills in the best way possible.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Graphic Design" icon="brush">
+              <p>
+                We can design posters, advertisements, business cards, logos, and more for your brand.
+              </p>
+            </what-we-do>
+            <what-we-do heading="Blogs" icon="library-books">
+              <p>
+                Tell your story, whatever it is that you do and love, with a fast and elegant personal page and blog.
+              </p>
+            </what-we-do>
+
+          </div>
+
+
+    </text-page-template>
+
+  </template>
+  <script>
+  Polymer({
+    is: 'about-page'
+  });
+  </script>
+</dom-module>

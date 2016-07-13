@@ -1,0 +1,71 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="text-page-template.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="contact-page">
+
+  <template>
+
+    <style include="shared-styles">
+
+    </style>
+
+    <style include="iron-flex iron-flex-alignment"></style>
+
+    <text-page-template heading="Contact">
+        <h2>Get in touch</h2>
+        <p>
+          Send us an email at <a href="mailto:charles@waverleydesigncompany.com">charles@waverleydesigncompany</a> or use the contact form below to get in touch.
+        </p>
+        <paper-input label="Name / Organisation" value="{{organisation}}"></paper-input>
+        <paper-input label="Email Address" value="{{email}}"></paper-input>
+        <paper-textarea label="Your Message." value="{{message}}"></paper-textarea>
+        <div class="right-align">
+          <paper-button raised on-tap="submit">Submit</paper-button>
+        </div>
+
+        <paper-dialog id="dialog">
+          <h1>Thankyou.</h1>
+          <p>
+            We'll be in touch soon!
+          </p>
+        </paper-dialog>
+
+    </text-page-template>
+
+
+
+  </template>
+
+  <script>
+  Polymer({
+    is: 'contact-page',
+
+    submit: function() {
+      var config = {
+        apiKey: "AIzaSyC9Gxy1xUI-CZkk09zWDVqkccK8Se0sa-o",
+        authDomain: "waverleydesign.firebaseapp.com",
+        databaseURL: "https://waverleydesign.firebaseio.com",
+        storageBucket: "project-1414170139559418341.appspot.com",
+      };
+      firebase.initializeApp(config);
+      console.log('Message Submitted - with these details!' + '\ ' + this.organisation + ', ' + this.message + ', ' + this.email);
+      firebase.database().ref('siteResponses/').push({
+        name: this.organisation,
+        email: this.email,
+        message: this.message
+      });
+      this.$.dialog.open();
+    },
+
+  });
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+</dom-module>

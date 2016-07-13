@@ -14,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 
 
 <dom-module id="home-page">
@@ -75,9 +76,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
     </div>
 
+    <div class="horizontal layout wrap main-graphic-panel">
+      <div class="heading-text-receptacle">
+        <h1 class="heading"><span class="waverley">Waverley</span><span class="hub">Hub</span></h1>
+        <p class="subtitle">
+          A new and exciting online community platform, in development now.
+        </p>
+      </div>
 
+        <template is="dom-if" if="{{smallScreen}}" restamp="true">
+          <div class="image-receptacle hub-graphic">
+            <iron-image class="hub-graphic" sizing="contain" src="../images/hub-graphic-mobile.png"></iron-image>
+          </div>
+        </template>
 
+        <template is="dom-if" if="{{!smallScreen}}" restamp="true">
+          <div class="image-receptacle hub-graphic">
+            <iron-image class="hub-graphic" sizing="contain" src="../images/hub-graphic-large.png"></iron-image>
+          </div>
+        </template>
 
+    </div>
 
   </template>
 

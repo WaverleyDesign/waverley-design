@@ -19,36 +19,58 @@
     </style>
     <style include="iron-flex iron-flex-alignment"></style>
 
-    <iron-media-query query="min-width: 600px" query-matches="{{!smallScreen}}">
+    <iron-media-query query="min-width: 600px" query-matches="{{smallScreen}}">
     </iron-media-query
 
     <div>
-      <div class="horizontal layout justified center toggle" on-tap="toggleCollapse">
+      <div class="horizontal layout justified center toggle" on-tap="toggle">
         <span>{{title}}</span>
-        <paper-icon-button id="toggle" icon="waverleydesignicons:{{icon}}"></paper-icon-button>
+        <paper-icon-button id="toggle"  icon="waverleydesignicons:{{_computeIcon(opened)}}"></paper-icon-button>
       </div>
-      <iron-collapse id="collapse" opened="{{!smallScreen}}">
+      <iron-collapse id="collapse" opened="{{opened}}">
         <content></content>
       </iron-collapse>
     </div>
+
 
   </template>
   <script>
     Polymer({
       is: 'footer-dropdown',
       properties: {
-
+        opened: Boolean
       },
-
       observers: [
-        '_collapseChanged(smallScreen)'
+        '_screenSizeChange(smallScreen)'
       ],
+      //
+      // observers: [
+      //   '_collapseChanged(smallScreen)'
+      // ],
 
-
-
-      _collapseChanged: function(smallScreen) {
-        this.toggleIcon();
+      _screenSizeChange(smallScreen) {
+        if (!smallScreen && this.opened) {
+          this.opened = false;
+        } else if (smallScreen && !this.opened) {
+          this.opened = true;
+        }
       },
+
+      _computeIcon(opened) {
+            if (opened) {
+              return 'arrow-drop-up';
+            } else {
+              return 'arrow-drop-down';
+            }
+          },
+
+          toggle: function() {
+            this.$.collapse.toggle();
+          },
+
+      // _collapseChanged: function(smallScreen) {
+      //   this.toggleIcon();
+      // },
 
       // _computeCollapseOpen: function(smallScreen) {
       //   if (smallScreen) {
@@ -58,17 +80,17 @@
       //   }
       // },
 
-      toggleCollapse: function() {
-        this.$.collapse.toggle();
-      },
+      // toggleCollapse: function() {
+      //   this.$.collapse.toggle();
+      // },
 
-      toggleIcon: function() {
-        if (this.icon == 'arrow-drop-up') {
-          this.icon = 'arrow-drop-down';
-        } else {
-          this.icon = 'arrow-drop-up';
-        }
-      },
+      // toggleIcon: function() {
+      //   if (this.icon == 'arrow-drop-up') {
+      //     this.icon = 'arrow-drop-down';
+      //   } else {
+      //     this.icon = 'arrow-drop-up';
+      //   }
+      // },
     });
   </script>
 </dom-module>

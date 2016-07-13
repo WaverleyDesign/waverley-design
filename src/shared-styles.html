@@ -79,9 +79,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     width: 100%
   }
 
-  .waverley {
-    color: var(--app-primary-color);
-  }
+
 
   h1, h2, h3, h4, h5, h6, .heading {
     font-family: 'Roboto Slab', sans-serif;
@@ -149,6 +147,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       height: 250px;
     }
 
+    .image-receptacle.hub-graphic, .image-receptacle iron-image.hub-graphic {
+      width: 100%;
+      height: 250px;
+    }
+
     .image-receptacle.main-graphic {
       @apply(--border-bottom);
     }
@@ -170,7 +173,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       color: var(--paper-blue-grey-800);
       font-weight: 300;
     }
-
+    ul.points {
+      font-size: 16px;
+    }
+    .points-heading {
+      font-size: 24px;
+    }
+    .page-content, .page-banner {
+      padding: 20px 40px;
+    }
+    h1.page-banner-heading {
+      font-size: 22px;
+    }
   }
 
   @media (min-width: 480px) {
@@ -189,7 +203,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     footer {
       padding: 32px;
     }
-
   }
   @media (min-width: 840px) {
     .tri-panel {
@@ -204,6 +217,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .image-receptacle iron-image.main-graphic {
       height: 500px;
     }
+    .image-receptacle iron-image.hub-graphic {
+      height: 400px;
+      margin: 50px 0px 0px 0px;
+    }
+    .image-receptacle.hub-graphic {
+      width: 50%;
+      height: 450px;
+    }
     .heading-text-receptacle {
       width: calc(50% - 64px - 1px);
       padding: 32px;
@@ -214,6 +235,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
     .heading-text-receptacle .subtitle {
       font-size: 28px;
+    }
+    .page-content, .page-banner {
+      padding: 40px 80px;
+    }
+    h1.page-banner-heading {
+      font-size: 32px;
     }
   }
   @media (min-width: 960px) {
@@ -327,7 +354,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   .subtitle {
     @apply(--paper-font-display1);
-    font-family: 'Roboto Slab', 'Noto', sans-serif;
   }
 
   ul {
@@ -354,10 +380,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: var(--paper-blue-grey-900);
   }
 
+
   .waverley {
     font-family: 'Roboto Slab', 'Roboto', 'Noto', Arial, sans-serif;
+    font-weight: 300;
+    color: var(--app-primary-color);
   }
-
+  .designcompany {
+    font-family: 'Roboto Slab', 'Roboto', 'Noto', Arial, sans-serif;
+    font-weight: 300;
+    color: var(--app-secondary-color);
+  }
   .hub {
     font-family: 'Comfortaa', 'Roboto Slab', 'Roboto', 'Noto', Arial, sans-serif;
   }
@@ -368,6 +401,79 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   footer.tri-panel footer-dropdown {
     margin-top: 15px;
   }
+
+  ul.points {
+    list-style-type: none;
+    padding: 4px;
+    color: #fff;
+  }
+
+  ul, p.subtitle {
+    font-family: 'Roboto', 'Roboto Slab', 'Noto', Arial, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Pages */
+
+  .max-width > * {
+    max-width: 800px;
+  }
+
+  .page-banner {
+    background-color: var(--app-primary-color);
+  }
+
+  .page-content .text {
+    margin: 0 auto;
+  }
+
+  h1.page-banner-heading {
+    margin: 0 auto;
+    font-weight: 300;
+    color: #fff;
+    line-height: 38px;
+  }
+
+  text-page-template h2 {
+    border-bottom: 1px solid var(--paper-green-600);
+    @apply(--paper-font-common-base);
+    font-weight: 700;
+    margin: 10px 0px;
+  }
+
+  text-page-template p, ul {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Roboto', 'Roboto Slab', 'Noto', Arial, sans-serif;
+    color: var(--app-secondary-color);
+    -webkit-font-smoothing: antialiased;
+    margin: 16px 0px;
+    line-height: 24px;
+  }
+
+  paper-input, paper-textarea {
+    outline: none;
+  }
+
+  paper-input, paper-textarea {
+    --paper-input-container-color: var(--app-secondary-color);
+    --paper-input-container-focus-color: var(--app-primary-color);
+    --paper-input-container-input-color: var(--app-secondary-color);
+  }
+
+  .right-align {
+    text-align: right;
+  }
+
+  paper-button {
+    background-color: var(--app-primary-color);
+    margin: 8px 0px 0px 0px;
+
+    color: white;
+    font-weight: 600;
+  }
+
 
 
   </style>
