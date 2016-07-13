@@ -1,0 +1,99 @@
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="waverley-design-icons.html">
+
+<dom-module id="what-we-do">
+  <template>
+    <style include="shared-styles">
+      h3 {
+        font-weight: 400;
+        margin: 16px;
+      }
+
+      iron-collapse div {
+        padding: 16px;
+        padding-top: 0px;
+      }
+
+      iron-icon {
+        margin-left: 16px;
+      }
+
+      paper-card {
+        width: 100%;
+      }
+
+      .left-align {
+        text-align: left;
+      }
+
+      @media (min-width: 0px) {
+        h3 {
+          font-size: 20px;
+        }
+        iron-icon {
+          width: 22px;
+          height: 22px;
+        }
+      }
+      @media (min-width: 960px) {
+        h3 {
+          font-size: 28px;
+        }
+        iron-icon {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+
+    </style>
+    <style include="iron-flex iron-flex-alignment"></style>
+    <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}"></iron-media-query>
+
+    <paper-card elevation="1">
+      <div class="horizontal layout center">
+        <iron-icon icon="waverleydesignicons:{{icon}}"></iron-icon>
+        <div class="left-align flex">
+          <h3>{{heading}}</h3>
+        </div>
+        <paper-icon-button icon="waverleydesignicons:{{arrowIcon}}" on-tap="toggle"></paper-icon-button>
+      </div>
+      <iron-collapse id="collapse" opened="{{opened}}">
+        <div>
+          <content></content>
+        </div>
+      </iron-collapse>
+    </paper-card>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'what-we-do',
+      properties: {
+        arrowIcon: {type: String, value: 'arrow-drop-down'},
+      },
+      toggle: function() {
+        this.$.collapse.toggle()
+        this.toggleIcon(this.arrowIcon);
+      },
+      toggleIcon: function(icon) {
+        if (icon == 'arrow-drop-up') {
+          this.arrowIcon = 'arrow-drop-down';
+        } else {
+          this.arrowIcon = 'arrow-drop-up';
+        }
+      },
+
+
+
+    });
+  </script>
+</dom-module>

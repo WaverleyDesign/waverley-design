@@ -48,7 +48,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         tail="{{subroute}}"></app-route>
 
         <app-header fixed>
-          <app-toolbar primary class="border-bottom">
+          <app-toolbar class="border-bottom">
             <template is="dom-if" if="{{smallScreen}}" restamp="true">
               <paper-icon-button class="drawer-toggle" icon="waverleydesignicons:menu" on-tap="toggleDrawer"></paper-icon-button>
             </template>
@@ -59,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <h1 class="desktop-logo-type" hidden="{{smallScreen}}"><span class="waverley">Waverley</span> Design Company</h1>
             </div>
           </app-toolbar>
-          <template secondary is="dom-if" if="{{!smallScreen}}">
+          <template is="dom-if" if="{{!smallScreen}}">
             <paper-tabs selected="[[page]]" noink attr-for-selected="name" class="tabs border-bottom" role="navigation">
               <template is="dom-repeat" items="{{views}}" index-as="index">
                 <paper-tab link>
@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <footer class="border-top border-bottom tri-panel horizontal layout wrap">
           <p class="subtitle">
-            Designed and built by the Waverley Design Company.
+            Designed and built by the <span class="waverley">Waverley</span> <span class="designcompany">Design Company</span>.
           </p>
           <footer-dropdown title="Products">
             <a href="/products/waverleyhub" class="footer-dropdown-link">
@@ -118,9 +118,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </footer-dropdown>
         </footer>
 
-        <div class="back-to-top">
-          Back to top
-        </div>
 
 
 
@@ -177,8 +174,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // load page import on demand.
         this.importHref(
           this.resolveUrl(page + '-page.html'), null, null, true);
+          console.log(page);
       },
 
+      backToTop: function() {
+        window.scroll(0,0);
+      }
     });
 
   </script>
