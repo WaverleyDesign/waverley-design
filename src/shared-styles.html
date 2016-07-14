@@ -53,8 +53,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --border-clear: {border: none;};
 
     /* Variables */
-    --app-primary-color: var(--paper-green-600);
+    --app-primary-color: var(--theme-light);
     --app-secondary-color: var(--paper-blue-grey-900);
+
+    
 
     --container: {
       @apply(--layout-horizontal);
@@ -312,7 +314,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   a {
-    color: var(--paper-blue-grey-800);
+    color: var(--theme-light);
     text-decoration: none
   }
 
@@ -446,17 +448,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   text-page-template h2 {
-    border-bottom: 1px solid var(--paper-green-600);
+    /*border-bottom: 1px solid var(--paper-green-600);*/
+    text-transform: lowercase;
     @apply(--paper-font-common-base);
-    font-weight: 700;
+    font-weight: 400;
     margin: 10px 0px;
   }
 
   text-page-template p, ul {
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Roboto', 'Roboto Slab', 'Noto', Arial, sans-serif;
-    color: var(--app-secondary-color);
+
+    color: var(--paper-blue-grey-900);
     -webkit-font-smoothing: antialiased;
     margin: 16px 0px;
     line-height: 24px;
@@ -483,7 +486,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: white;
     font-weight: 600;
   }
-
 
 
   </style>

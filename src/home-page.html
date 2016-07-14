@@ -9,6 +9,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animatable.html">
+
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="mixin-styles.html">
@@ -52,11 +57,18 @@ color: transparent;
 
       }*/
 
+      neon-animated-pages {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+      }
+
+
       img {
         width: 100%;
       }
 
-      div.image-behind img {
+      div.image-behind neon-animated-pages {
         position: absolute;
         top: 0;
         z-index: -5;
@@ -74,12 +86,14 @@ color: transparent;
 
       .subtitle-text {
         background-color: white;
-        color: var(--paper-blue-grey-800);
-        padding: 16px;
+        color: var(--light-theme);
+        padding: 16px 16px 32px 16px;
+        height: 2em;
       }
 
       .subtitle-text > * {
         margin: 0px;
+
       }
 
       .info-and-image-panel {
@@ -110,11 +124,26 @@ color: transparent;
     </div>
 
     <div class="vertical layout center subtitle-text">
-    <h1>[[text]]</h1>
+      <neon-animated-pages  id="pages" selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+        <neon-animatable>
+          <h1>local graphic design</h1>
+        </neon-animatable>
+        <neon-animatable>
+          <h1>local web design</h1>
+        </neon-animatable>
+        <neon-animatable>
+          <h1>local web app development</h1>
+        </neon-animatable>
+      </neon-animated-pages>
     </div>
 
     <div class="image-behind">
-      <img src="../images/background.jpeg" alt="" />
+      <neon-animated-pages  id="background" selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+        <neon-animatable>
+          <img src="../images/background.jpeg" alt="" />
+        </neon-animatable>
+      </neon-animated-pages>
+
     </div>
 
     <div class="info-and-image-panel left">
@@ -133,25 +162,30 @@ color: transparent;
       is: 'home-page',
 
       properties: {
-        text: {
-          type: String,
-          value: 'hello'
-        },
+
       },
 
       attached: function () {
-        this._countDown();
+        this._countDownText();
       },
 
-      _countDown: function () {
+      _countDownText: function () {
         this.newText();
-        this.async(this._countDown, 5000);
+        this.async(this._countDownText, 5000);
+      },
+
+      _countDownBackground: function () {
+        this.newBackground();
+        this.async(this._countDownText, 30000);
       },
 
       newText: function() {
-        // this.$.pages.selectNext();
+        this.$.pages.selectNext();
+      },
 
-      }
+      newBackground: function() {
+        this.$.background.selectNext();
+      },
 
     });
 

@@ -55,6 +55,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin: 16px;
     }
 
+    :host {
+      /* Theme Colours */
+
+      --theme-light: red;
+      --theme-dark: blue;
+      --theme-neutral: green;
+    }
+
     </style>
 
     <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
@@ -68,6 +76,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         tail="{{subroute}}"></app-route>
 
         <app-header-layout>
+
+
+
   <app-header fixed condenses effects="waterfall">
     <app-toolbar class="links-bar">
       <div>
@@ -77,9 +88,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <a href="/projects">projects</a>
       </div>
     </app-toolbar>
+
   </app-header>
 
-
+  <template is="dom-if" if="{{!_isPageHome(routeData.page)}}" restamp="true">
+    <app-toolbar class="title-bar">
+      <h1>{{routeData.page}}</h1>
+    </app-toolbar>
+  </template>
 
 
 
@@ -169,6 +185,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
 
+
       },
 
       observers: [
@@ -205,7 +222,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       backToTop: function() {
         window.scroll(0,0);
+      },
+
+      attached: function () {
+        this._countDown();
+      },
+
+      _countDown: function () {
+        this.colourChange();
+        this.async(this._countDown, 30000);
+      },
+
+      colourChange: function() {
+        var oldColour = this.customStyle['--theme-light'];
+        if (oldColour == 'red') {
+          this.customStyle['--theme-light'] = 'green';
+          Polymer.updateStyles();
+        } else if (oldColour == 'green') {
+          this.customStyle['--theme-light'] = 'blue';
+          Polymer.updateStyles();
+        } else if (oldColour == 'blue') {
+          this.customStyle['--theme-light'] = 'red';
+          Polymer.updateStyles();
+        }
+
+
+      },
+
+      ready: function() {
+        this.customStyle['--theme-light'] = 'red';
+        Polymer.updateStyles();
       }
+
+      // test: function() {
+      //   var oldColour = this.customStyle['--theme-light'];
+      //   console.log(oldColour);
+      //   this.customStyle['--theme-light'] = 'green';
+      //   this.updateStyles();
+      //
+      // },
+
+
     });
 
   </script>

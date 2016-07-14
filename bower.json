@@ -33,7 +33,8 @@
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
     "iron-image": "PolymerElements/iron-image#^1.2.3",
     "iron-component-page": "PolymerElements/iron-component-page#^1.1.6",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.3"
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.3",
+    "neon-animation": "PolymerElements/neon-animation#^1.2.3"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
