@@ -11,7 +11,12 @@
     <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}">
     </iron-media-query>
 
-    <style include="shared-styles"></style>
+    <style include="shared-styles">
+      .title-bar {
+        padding: 0px;
+      }
+
+    </style>
 
     <style include="iron-flex iron-flex-alignment"></style>
 
@@ -20,6 +25,10 @@
       <!-- <div class="page-banner max-width">
         <h1 class="page-banner-heading">{{heading}}</h1>
       </div> -->
+
+      <app-toolbar class="title-bar">
+        <h1>{{heading}}</h1>
+      </app-toolbar>
 
       <div class="page-content max-width">
         <div class="text">

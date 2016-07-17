@@ -24,13 +24,13 @@
     <text-page-template heading="Contact">
         <h2>Get in touch</h2>
         <p>
-          Send us an email at <a href="mailto:charles@waverleydesigncompany.com">charles@waverleydesigncompany</a> or use the contact form below to get in touch.
+          Send us an email at <a class="mailto-link" href="mailto:charles@waverleydesigncompany.com">charles@waverleydesigncompany.com</a> or use the contact form below to get in touch.
         </p>
         <paper-input label="Name / Organisation" value="{{organisation}}"></paper-input>
         <paper-input label="Email Address" value="{{email}}"></paper-input>
         <paper-textarea label="Your Message." value="{{message}}"></paper-textarea>
         <div class="right-align">
-          <paper-button raised on-tap="submit">Submit</paper-button>
+          <paper-button raised on-tap="submit" class="submit">Submit</paper-button>
         </div>
 
         <paper-dialog id="dialog">

@@ -1,0 +1,51 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="text-page-template.html">
+<link rel="import" href="projects-card.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="projects-page">
+
+  <template>
+
+    <style include="shared-styles">
+    .grid {
+      @apply(--layout-vertical);
+      @apply(--layout-wrap);
+      width: 100%;
+      text-align: center;
+      /*margin-top: -40px;*/
+      height: calc(350px * 2);
+    }
+
+    projects-card {
+      width: 50%;
+      height: 350px;
+    }
+    </style>
+
+    <style include="iron-flex iron-flex-alignment"></style>
+
+      <text-page-template heading="projects">
+
+      <div class="grid">
+        <projects-card heading="Mt Crosby History" text-color="white" background="../images/backgroundtwo.jpeg"></projects-card>
+        <projects-card heading="Moggill Tours" text-color="white" background="../images/background.jpeg"></projects-card>
+        <projects-card heading="Personal" text-color="white" background="../images/backgroundthree.jpeg"></projects-card>
+      </div>
+
+    </text-page-template>
+
+
+
+
+  </template>
+
+  <script>
+  Polymer({
+    is: 'projects-page',
+  });
+  </script>
+</dom-module>

@@ -1,0 +1,77 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="projects-card">
+
+  <template>
+
+    <style include="shared-styles">
+      paper-card {
+        background-image: var(--card-background);
+        width: 100%;
+        padding: 0px;
+        height: 350px;
+      }
+
+      iron-image {
+        width: 100%;
+        height: 350px;
+      }
+
+      h1  {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        z-index: 125;
+        text-shadow: 2px 2px 5px black;
+      }
+
+      paper-button {
+        background-color: transparent;
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        z-index: 124;
+        font-weight: 500;
+      }
+    </style>
+
+    <style include="iron-flex iron-flex-alignment"></style>
+
+
+    <paper-card on-mouseover="increaseShadow" on-mouseout="decreaseShadow" animated-shadow="true" elevation="{{elevation}}">
+      <h1 style="color: {{textColor}}">{{heading}}</h1>
+      <iron-image src="{{background}}" class="image" preload sizing="cover"></iron-image>
+      <paper-button style="color: {{textColor}}">read more</paper-button>
+    </paper-card>
+
+
+
+
+  </template>
+  <script>
+  Polymer({
+    is: 'projects-card',
+    properties: {
+        heading: String,
+        background: String,
+        elevation: Number,
+        textColor: String,
+      },
+      ready: function() {
+        this.customStyle['--card-background'] = this.background;
+        this.updateStyles();
+        this.elevation = 0;
+      },
+      increaseShadow: function() {
+        this.elevation = 4;
+      },
+      decreaseShadow: function() {
+        this.elevation = 0;
+      },
+  });
+  </script>
+</dom-module>

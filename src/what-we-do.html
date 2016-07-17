@@ -26,7 +26,7 @@
         margin-left: 16px;
       }
 
-      paper-card {
+      paper-card, div.card {
         width: 100%;
       }
 
@@ -58,7 +58,7 @@
     <style include="iron-flex iron-flex-alignment"></style>
     <iron-media-query query="min-width: 767px" query-matches="{{!smallScreen}}"></iron-media-query>
 
-    <paper-card elevation="1">
+    <!-- <paper-card elevation="1">
       <div class="horizontal layout center">
         <iron-icon icon="waverleydesignicons:{{icon}}"></iron-icon>
         <div class="left-align flex">
@@ -71,7 +71,14 @@
           <content></content>
         </div>
       </iron-collapse>
-    </paper-card>
+    </paper-card> -->
+
+    <div class="card">
+      <h2 style="text-transform: lowercase">[[heading]]</h2>
+      <p>
+        <content></content>
+      </p>
+    </div>
 
   </template>
   <script>

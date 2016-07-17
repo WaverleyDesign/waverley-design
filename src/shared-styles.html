@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --app-primary-color: var(--theme-light);
     --app-secondary-color: var(--paper-blue-grey-900);
 
-    
+
 
     --container: {
       @apply(--layout-horizontal);
@@ -97,6 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     font-family: 'Roboto Slab', sans-serif;
     font-weight: 300;
     margin-top: 0px;
+    color: var(--theme-dark);
   }
 
   .heading {
@@ -185,12 +186,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       color: var(--paper-blue-grey-800);
       font-weight: 300;
     }
-    ul.points {
-      font-size: 16px;
-    }
-    .points-heading {
-      font-size: 24px;
-    }
+
     .page-content, .page-banner {
       padding: 20px 40px;
     }
@@ -284,9 +280,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .heading-text-receptacle .subtitle {
       font-size: 36px;
     }
-    .tabs a {
-      font-size: 16px;
-    }
     .points-heading {
       font-size: 30px;
     }
@@ -313,10 +306,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   }
 
-  a {
-    color: var(--theme-light);
-    text-decoration: none
-  }
+
 
   .dual-panel, .tri-panel {
     @apply(--layout-horizontal);
@@ -403,12 +393,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     font-weight: 300;
     color: var(--app-secondary-color);
   }
-  .hub {
-    font-family: 'Comfortaa', 'Roboto Slab', 'Roboto', 'Noto', Arial, sans-serif;
-  }
-  .dash {
-    font-family: 'Roboto Condensed', 'Roboto Slab', 'Roboto', 'Noto', Arial, sans-serif;
-  }
+
 
   footer.tri-panel footer-dropdown {
     margin-top: 15px;
@@ -421,9 +406,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   ul, p.subtitle {
-    font-family: 'Roboto', 'Roboto Slab', 'Noto', Arial, sans-serif;
+    font-family: 'Josefin Sans', 'Roboto', 'Noto', Arial, sans-serif;
     font-weight: 300;
-    -webkit-font-smoothing: antialiased;
   }
 
   /* Pages */
@@ -456,11 +440,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   text-page-template p, ul {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 300;
 
     color: var(--paper-blue-grey-900);
-    -webkit-font-smoothing: antialiased;
     margin: 16px 0px;
     line-height: 24px;
   }
@@ -486,6 +469,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: white;
     font-weight: 600;
   }
+
+  app-toolbar.links-bar div, app-toolbar.title-bar {
+    @apply(--layout-horizontal);
+    @apply(--layout-center-justified);
+    width: 100%;
+  }
+
+  app-toolbar.title-bar h1 {
+    margin-top: 24px;
+  }
+
+  app-toolbar.title-bar {
+    background-color: white;
+    text-transform: lowercase;
+  }
+
+  a.mailto-link, paper-button.submit {
+    background-image: var(--theme-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: white;
+    padding: 8px;
+    border-radius: 3px;
+    text-shadow: 3px 1px 5px #607D8B;
+    -webkit-transition: background-image 1s; /* For Safari 3.1 to 6.0 */
+    transition: background-image 1s;
+  }
+
+  a {
+    color: var(--theme-light);
+    text-decoration: none;
+    -webkit-transition: color 1s; /* For Safari 3.1 to 6.0 */
+    transition: color 1s;
+  }
+
+  a.toolbar-link, .subtitle-text-h {
+    font-family: 'Josefin Sans', 'Futura', 'Century Gothic', 'Noto', Arial, sans-serif;
+    font-size: 28px;
+  }
+
 
 
   </style>

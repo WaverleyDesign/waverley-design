@@ -56,6 +56,9 @@ color: transparent;
         mask-image: url('../images/paper.png');
 
       }*/
+      app-box {
+            height: 640px;
+          }
 
       neon-animated-pages {
         text-align: center;
@@ -112,43 +115,60 @@ color: transparent;
         width: 40%;
       }
 
+      .small-write-up {
+        padding: 32px;
+      }
+
+
     </style>
 
     <style include="iron-flex iron-flex-alignment"></style>
 
     <div class="home-page-banner vertical layout center">
-      <!-- <h1>Waverley</h1>
-      <h1>Design Company</h1> -->
-
       <img class="text" src="../images/text.png" alt="" />
     </div>
 
     <div class="vertical layout center subtitle-text">
-      <neon-animated-pages  id="pages" selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+      <neon-animated-pages id="pages" selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
         <neon-animatable>
-          <h1>local graphic design</h1>
+          <h1 class="subtitle-text-h">local graphic design</h1>
         </neon-animatable>
         <neon-animatable>
-          <h1>local web design</h1>
+          <h1 class="subtitle-text-h">local web design</h1>
         </neon-animatable>
         <neon-animatable>
-          <h1>local web app development</h1>
+          <h1 class="subtitle-text-h">local web app development</h1>
         </neon-animatable>
       </neon-animated-pages>
     </div>
 
     <div class="image-behind">
-      <neon-animated-pages  id="background" selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+      <neon-animated-pages id="background" selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+
         <neon-animatable>
-          <img src="../images/background.jpeg" alt="" />
+          <iron-image style="width:100%; height:1000px; background-color: lightgray;"
+  sizing="cover" preload fade src="../images/backgroundtwo.jpeg"></iron-image>
         </neon-animatable>
+        <neon-animatable>
+          <iron-image style="width:100%; height:1000px; background-color: lightgray;"
+  sizing="cover" preload fade src="../images/background.jpeg"></iron-image>
+        </neon-animatable>
+        <neon-animatable>
+          <iron-image style="width:100%; height:1000px; background-color: lightgray;"
+  sizing="cover" preload fade src="../images/backgroundthree.jpeg"></iron-image>
+        </neon-animatable>
+
       </neon-animated-pages>
 
     </div>
 
     <div class="info-and-image-panel left">
-      <paper-card>
-        <h1>Hey</h1>
+
+      <paper-card class="small-write-up">
+        <h1>For Local Businesses</h1>
+        <p>
+
+        </p>
       </paper-card>
     </div>
 
@@ -167,25 +187,27 @@ color: transparent;
 
       attached: function () {
         this._countDownText();
+        this._countDownBackground();
       },
 
       _countDownText: function () {
         this.newText();
         this.async(this._countDownText, 5000);
       },
-
       _countDownBackground: function () {
         this.newBackground();
-        this.async(this._countDownText, 30000);
+        this.async(this._countDownBackground, 15000);
       },
 
       newText: function() {
         this.$.pages.selectNext();
+
       },
 
       newBackground: function() {
         this.$.background.selectNext();
-      },
+      }
+
 
     });
 
