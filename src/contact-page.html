@@ -14,18 +14,15 @@
   <template>
 
     <style include="shared-styles">
-      a {
-        color: var(--theme-light)
-      }
     </style>
 
     <style include="iron-flex iron-flex-alignment"></style>
 
     <text-page-template heading="Contact">
-        <h2>Get in touch</h2>
         <p>
-          Send us an email at <a class="mailto-link" href="mailto:charles@waverleydesigncompany.com">charles@waverleydesigncompany.com</a> or use the contact form below to get in touch.
+          Send us an email at <a  href="mailto:charles@waverleydesigncompany.com">charles@waverleydesigncompany.com</a> or use the contact form below to get in touch.
         </p>
+        
         <paper-input label="Name / Organisation" value="{{organisation}}"></paper-input>
         <paper-input label="Email Address" value="{{email}}"></paper-input>
         <paper-textarea label="Your Message." value="{{message}}"></paper-textarea>

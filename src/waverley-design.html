@@ -51,8 +51,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       background-color: white;
     }
 
-    a {
-      margin: 16px;
+
+
+    iron-selector {
+      margin: 16px 0px;
     }
 
 
@@ -84,14 +86,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <app-header fixed condenses effects="waterfall">
     <app-toolbar class="links-bar">
       <div>
-        <a class="toolbar-link" href="/home">home</a>
-        <a class="toolbar-link" href="/about">about</a>
-        <a class="toolbar-link" href="/contact">contact</a>
-        <a class="toolbar-link" href="/projects">projects</a>
+        <iron-selector selected="[[page]]" attr-for-selected="name" role="navigation">
+          <a class="toolbar-link" href="/home" name="home">home</a>
+          <a class="toolbar-link" href="/about" name="about">about</a>
+          <a class="toolbar-link" href="/contact" name="contact">contact</a>
+          <a class="toolbar-link" href="/projects" name="projects">projects</a>
+        </iron-selector>
+
       </div>
     </app-toolbar>
 
   </app-header>
+
+
 
 
 
@@ -108,7 +115,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </app-header-layout>
 
         <!-- Drawer content -->
-        <template is="dom-if" if="{{smallScreen}}" restamp="true">
+        <!-- <template is="dom-if" if="{{smallScreen}}" restamp="true">
           <app-drawer swipe-open id="drawer" opened="{{drawerOpened}}">
             <div on-tap="closeDrawer">
               <h2 class="drawer-heading">Menu</h2>
@@ -121,7 +128,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </iron-selector>
             </div>
           </app-drawer>
-        </template>
+        </template> -->
 
 
 

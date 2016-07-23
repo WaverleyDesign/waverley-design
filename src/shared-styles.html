@@ -25,6 +25,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --iron-image-width: 100%;
   }
 
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto Slab', sans-serif;
+  }
+
+  p {
+    font-family: 'Josefin Sans';
+  }
 
   .border-top {
     @apply(--border-top);
@@ -77,12 +84,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --paper-icon-button-ink-color: var(--app-secondary-color);
   }
 
-  .tabs a {
-    display: block;
-    font-family: 'Roboto';
-    text-transform: uppercase;
+   .toolbar-link {
     text-decoration: none;
-    color: var(--app-secondary-color);
   }
 
   .logo-container {
@@ -127,27 +130,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     app-toolbar {
       height: auto;
     }
-
-    .logo {
-      height: 150px;
-      width: 150px;
-    }
-
     .drawer-toggle {
       position: fixed;
       top: 16px;
-    }
-
-    .tri-panel {
-      padding: 32px;
-    }
-
-    .dual-panel > * {
-      width: 100%;
-    }
-
-    .tri-panel > * {
-      width: 100%;
     }
     footer {
       padding: 16px;
@@ -155,52 +140,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     footer .subtitle {
       font-size: 16px;
     }
-    .image-receptacle.main-graphic, .image-receptacle iron-image.main-graphic {
-      width: 100%;
-      height: 250px;
-    }
-
-    .image-receptacle.hub-graphic, .image-receptacle iron-image.hub-graphic {
-      width: 100%;
-      height: 250px;
-    }
-
-    .image-receptacle.main-graphic {
-      @apply(--border-bottom);
-    }
-
-    .heading-text-receptacle {
-      width: calc(100% - 32px);
-      padding: 16px;
-      text-align: center;
-    }
-
-    .heading {
-      font-size: 36px;
-      line-height: normal;
-    }
-
-    p.subtitle {
-      font-size: 24px;
-      line-height: normal;
-      color: var(--paper-blue-grey-800);
-      font-weight: 300;
-    }
-
     .page-content, .page-banner {
       padding: 20px 40px;
     }
-    h1.page-banner-heading {
+
+    .small-write-up p {
+      font-size: 20px;
+    }
+    .small-write-up {
+      padding: 16px;
+      width: 100%;
+    }
+    .small-write-up h1 {
+      font-size: 26px;
+    }
+    br.spacer {
+      display: block;
+    }
+    span.spacer {
+      display: none;
+    }
+    .text {
+      border: 30px solid white;
+      width: calc(100% - 60px);
+    }
+    a.toolbar-link {
       font-size: 22px;
+      margin: 10px;
     }
   }
 
   @media (min-width: 480px) {
-    .heading {
-      @apply(--paper-font-display1);
+    .text {
+      border: 40px solid white;
+      width: calc(100% - 80px);
     }
-    footer .subtitle {
-      font-size: 22px;
+    .small-write-up {
+      width: 50%;
     }
   }
   @media (min-width: 600px) {
@@ -211,98 +187,75 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     footer {
       padding: 32px;
     }
+    .text {
+      border: 50px solid white;
+      width: calc(100% - 100px);
+    }
+    .small-write-up p {
+      font-size: 24px;
+    }
+    .small-write-up {
+      padding: 28px;
+    }
   }
   @media (min-width: 840px) {
     .tri-panel {
       padding: 60px 80px;
     }
-    .image-receptacle.main-graphic {
-      width: 50%;
-      height: 500px;
-      @apply(--border-clear);
-      @apply(--border-right);
-    }
-    .image-receptacle iron-image.main-graphic {
-      height: 500px;
-    }
-    .image-receptacle iron-image.hub-graphic {
-      height: 400px;
-      margin: 50px 0px 0px 0px;
-    }
-    .image-receptacle.hub-graphic {
-      width: 50%;
-      height: 450px;
-    }
-    .heading-text-receptacle {
-      width: calc(50% - 64px - 1px);
-      padding: 32px;
-      text-align: right;
-    }
-    .heading {
-      font-size: 48px;
-    }
-    .heading-text-receptacle .subtitle {
-      font-size: 28px;
-    }
     .page-content, .page-banner {
       padding: 40px 80px;
     }
-    h1.page-banner-heading {
-      font-size: 32px;
+    .text {
+      border: 70px solid white;
+      width: calc(100% - 140px);
+    }
+    a.toolbar-link {
+      font-size: 28px;
+      margin: 16px;
+    }
+    .small-write-up {
+      width: 40%;
     }
   }
   @media (min-width: 960px) {
-    .heading {
-      @apply(--paper-font-display3);
+    .small-write-up p {
+      font-size: 28px;
     }
-    .dual-panel > * {
-      width: calc(50% - 64px);
+    .small-write-up {
+      padding: 32px;
+      width: 40%;
     }
-    .heading-text-receptacle {
-      width: calc(50% - 96px - 1px);
-      padding: 48px;
-      text-align: right;
-    }
-    .heading {
-      font-size: 50px;
-    }
-    .heading-text-receptacle .subtitle {
-      font-size: 32px;
-    }
-    .desktop-logo-type {
-      font-size: 48px;
-    }
-  }
-  @media (min-width: 1280px) {
-    .heading {
-      font-size: 56px;
-    }
-    .heading-text-receptacle .subtitle {
+    .small-write-up h1 {
       font-size: 36px;
     }
-    .points-heading {
-      font-size: 30px;
+    br.spacer {
+      display: none;
+    }
+    span.spacer {
+      display: inline-block;
+    }
+    .text {
+      border: 90px solid white;
+      width: calc(100% - 180px);
+    }
+
+  }
+  @media (min-width: 1280px) {
+    .text {
+      border: 100px solid white;
+      width: calc(100% - 200px);
     }
   }
   @media (min-width: 1440px) {
-    .heading-text-receptacle {
-      width: calc(50% - 128px - 1px);
-      padding: 64px;
-      text-align: right;
-    }
-    .heading {
-      font-size: 60px;
-    }
-    .desktop-logo-type {
-      font-size: 64px;
+    .text {
+      border: 120px solid white;
+      width: calc(100% - 240px);
     }
   }
   @media (min-width: 1600px) {
-    .heading {
-      font-size: 68px;
-    }
-    .heading-text-receptacle .subtitle {
-      font-size: 40px;
+    .text {
+      border: 130px solid white;
+      width: calc(100% - 260px);
     }
   }
 
@@ -407,7 +360,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   ul, p.subtitle {
     font-family: 'Josefin Sans', 'Roboto', 'Noto', Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   /* Pages */
@@ -420,7 +373,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     background-color: var(--app-primary-color);
   }
 
-  .page-content .text {
+  .page-content .text-page-template {
     margin: 0 auto;
   }
 
@@ -441,7 +394,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   text-page-template p, ul {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
 
     color: var(--paper-blue-grey-900);
     margin: 16px 0px;
@@ -455,7 +408,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   paper-input, paper-textarea {
     --paper-input-container-color: var(--app-secondary-color);
     --paper-input-container-focus-color: var(--app-primary-color);
-    --paper-input-container-input-color: var(--app-secondary-color);
+    --paper-input-container-input-color: var(--app-secondary-color);\
+    --paper-input-container: {
+      font-family: 'Josefin Sans';
+    };
   }
 
   .right-align {
@@ -485,9 +441,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     text-transform: lowercase;
   }
 
-  a.mailto-link, paper-button.submit {
+   paper-button.submit {
     background-image: var(--theme-image);
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
 
     color: white;
@@ -500,14 +456,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   a {
     color: var(--theme-light);
-    text-decoration: none;
+    text-decoration: underline;;
     -webkit-transition: color 1s; /* For Safari 3.1 to 6.0 */
     transition: color 1s;
   }
 
   a.toolbar-link, .subtitle-text-h {
     font-family: 'Josefin Sans', 'Futura', 'Century Gothic', 'Noto', Arial, sans-serif;
-    font-size: 28px;
+
   }
 
 

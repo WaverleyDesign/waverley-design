@@ -77,12 +77,6 @@ color: transparent;
         z-index: -5;
       }
 
-      .text {
-        border: 120px solid white;
-        width: calc(100% - 240px);
-
-      }
-
       .home-page-banner {
         z-index: 2;
       }
@@ -100,25 +94,56 @@ color: transparent;
       }
 
       .info-and-image-panel {
-        width: 100%;
-        background-image: url('../images/background.jpeg');
+        width: calc(100% - 32px);
+
         background-size: auto;
         padding: 16px;
       }
 
       .left {
         @apply(--layout-horizontal);
-        @apply(--layout-start-justified)
+        @apply(--layout-start-justified);
+        background-image: url('../images/background.jpeg');
       }
-
+      .right {
+        @apply(--layout-horizontal);
+        @apply(--layout-end-justified);
+        background-image: url('../images/backgroundtwo.jpeg');
+      }
+/*
       .info-and-image-panel paper-card {
         width: 40%;
+      }*/
+
+
+      .small-write-up p {
+        margin-bottom: 0px;
       }
 
-      .small-write-up {
-        padding: 32px;
+      a.contact {
+        text-decoration: underline;
+        color: var(--theme-dark);
       }
 
+      .contact-panel {
+        @apply(--layout-vertical);
+        @apply(--layout-center-justified);
+        width: 100%;
+        text-align: center;
+        color: var(--app-secondary-color);
+
+        font-size: 20px;
+        background-color: white;
+        @apply(--shadow-elevation-2dp)
+      }
+
+      .right .small-write-up {
+        text-align: right;
+      }
+
+      .spacer {
+        margin: 0px 18px;
+      }
 
     </style>
 
@@ -165,9 +190,25 @@ color: transparent;
     <div class="info-and-image-panel left">
 
       <paper-card class="small-write-up">
-        <h1>For Local Businesses</h1>
+        <h1>Community-Minded Design</h1>
         <p>
+          That means our work is always affordable, meaningful, relevant to the local area, and beautiful.
+        </p>
+      </paper-card>
+    </div>
 
+    <div class="contact-panel">
+      <p>
+        Instagram: <a class="contact" href="https://instagram.com/waverleydesign">@WaverleyDesign</a><span class="spacer"></span><br class="spacer"> Email: <a class="contact" href="charles@waverleydesigncompany.com">charles@waverleydesigncompany.com</a><span class="spacer"></span><br class="spacer"> Facebook: <a class="contact" href="https://facebook.com/waverleydesign">Waverley Design</a>
+      </p>
+    </div>
+
+    <div class="info-and-image-panel right">
+
+      <paper-card class="small-write-up">
+        <h1>Show Off Your Work With Us</h1>
+        <p>
+          We'll handcraft you a site that showcases you, your business, or your community organisation or club - in the best way possible.
         </p>
       </paper-card>
     </div>
